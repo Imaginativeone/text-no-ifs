@@ -43,7 +43,14 @@ function textBlockLogic(textdata, begMarker, endMarker, ignMarker) {
     const no_e = ( b && !e &&  i);
     const no_i = ( b &&  e && !i);
 
-    // There's a way to figure out these combinations with a function
+    const only_b = (!b && !e &&  i);
+    const only_e = (!b &&  e && !i);
+    const only_i = (!b && !e &&  i);
+
+    const no_markers  = (!b && !e && !i);
+    const all_markers = ( b &&  e &&  i);
+
+    // There's a way to figure out these permutations with a function
     // After that, I need to deliver the final logical result
   }
    

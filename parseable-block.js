@@ -33,13 +33,15 @@ function locateIgnMarker(ignMarker, textdata) {
 
 function textBlockLogic(textdata, begMarker, endMarker, ignMarker) {
 
+  const objComparison = {};
+
   const b = locateBegMarker(begMarker, textdata);
   const e = locateEndMarker(endMarker, textdata);
   const i = locateIgnMarker(ignMarker, textdata);
 
   const _parse = function(b, e, i) {
 
-    const no_b = (!b &&  e &&  i);
+    const no_b = { b: !b, e:  e, i:  i }
     const no_e = ( b && !e &&  i);
     const no_i = ( b &&  e && !i);
 
@@ -54,10 +56,13 @@ function textBlockLogic(textdata, begMarker, endMarker, ignMarker) {
     // After that, I need to deliver the final logical result
 
     // Compare the actual table with the possibilties
-    const actual = (b && e && i);
-    const comparison = [no_b, no_e, no_i, only_b, only_e, only_i, no_markers, all_markers];
+    const actual   = { b: b, e:  e, i:  i }
+    const possible = [no_b, no_e, no_i, only_b, only_e, only_i, no_markers, all_markers];
 
-    return 'placeholder';
+    objComparison.actual = actual;
+    objComparison.possible = possible;
+
+    return objComparison;
 
   }
    

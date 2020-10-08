@@ -1,4 +1,4 @@
-const textdata = `**Data** The quick brown fox jumped over the lazy dog. -|-`;
+const textdata = `**Data** The quick brown fox jumped over the lazy dog! -|-`;
 
 const begMarker = '**Data**';
 const ignMarker = '!';
@@ -37,7 +37,16 @@ function textBlockLogic(textdata, begMarker, endMarker, ignMarker) {
   const e = locateEndMarker(endMarker, textdata);
   const i = locateIgnMarker(ignMarker, textdata);
 
-  const parse = (b && e && !i)
+  const parse = function(b, e, i) {
+
+    const no_b = (!b &&  e &&  i);
+    const no_e = ( b && !e &&  i);
+    const no_i = ( b &&  e && !i);
+
+    // There's a way to figure out these combinations with a function
+    // After that, I need to deliver the final logical result
+  }
+   
   console.log('parse', parse);
   
 }

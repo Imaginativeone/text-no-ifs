@@ -6,31 +6,40 @@ const endMarker = '-|-';
 
 function locateBegMarker(begMarker, textdata) {
 
-  const yes = textdata.indexOf(begMarker) !== -1;
-  const no  = textdata.indexOf(begMarker) === -1;
-  console.log('Begin Marker There', yes);
-  console.log('Begin Marker Not There', no);
+  const there = textdata.indexOf(begMarker) !== -1;
+  console.log('Begin Marker There', there);
+
+  return there;
 
 }
 
 function locateEndMarker(endMarker, textdata) {
 
-  const yes = textdata.indexOf(begMarker) !== -1;
-  const no  = textdata.indexOf(begMarker) === -1;
-  console.log('End Marker There', yes);
-  console.log('End Marker Not There', no);
+  const there = textdata.indexOf(endMarker) !== -1;
+  console.log('Begin Marker There', there);
+
+  return there;
 
 }
 
-function locateIgnMarker(endMarker, textdata) {
+function locateIgnMarker(ignMarker, textdata) {
 
-  const yes = textdata.indexOf(begMarker) !== -1;
-  const no  = textdata.indexOf(begMarker) === -1;
-  console.log('End Marker There', yes);
-  console.log('End Marker Not There', no);
+  const there = textdata.indexOf(ignMarker) !== -1;
+  console.log('Begin Marker There', there);
+
+  return there;
 
 }
 
-locateBegMarker(begMarker, textdata);
-locateEndMarker(endMarker, textdata);
-locateIgnMarker(ignMarker, textdata);
+function textBlockLogic(textdata, begMarker, endMarker, ignMarker) {
+
+  const b = locateBegMarker(begMarker, textdata);
+  const e = locateEndMarker(endMarker, textdata);
+  const i = locateIgnMarker(ignMarker, textdata);
+
+  const parse = (b && e && !i)
+  console.log('parse', parse);
+  
+}
+
+textBlockLogic(textdata, begMarker, endMarker, ignMarker);
